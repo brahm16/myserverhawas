@@ -52,12 +52,12 @@ var myuserRouter=require('./routes/myusers');
 
 
 // Dev Logginf Middleware
-if (process.env.NODE_ENV === 'development') {
+
     app.use(cors({
-        origin: [process.env.CLIENT_URL,process.env.CLIENT_URL1]
+        origin: [process.env.CLIENT_URL,process.env.CLIENT_URL1,process.env.CLIENT_PROD_URL]
     }))
-    app.use(morgan('dev'))
-}
+    app.use(morgan('combined'))
+
 
 // Use Routes
 app.use('/api', authRouter)
